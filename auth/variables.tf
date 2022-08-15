@@ -1,12 +1,19 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
+variable "project_name" {
+  type    = string
+  default = "tripstagger"
 }
 
-provider "aws" {
-  region = "eu-central-1"
+variable "user_pool_name" {
+  type    = string
+  default = "tripstagger"
+}
+
+variable "alias_attributes" {
+  type = list(string)
+  default = [ "email", "phone_number" ]
+}
+
+variable "auto_verified_attributes" {
+  type = list(string)
+  default = [ "email" ]
 }
